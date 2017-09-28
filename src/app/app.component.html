@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-createserver (serverCreated)="onServerCreated($event)"> </app-createserver>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Main Server</h1>
+      <app-serverlist [server]="{ name:server +' main'}" *ngFor="let server of servers"></app-serverlist>
+    </div>
+    <div class="col-md-6">
+      <h1>Blueprint Server</h1>
+      <app-serverlist [server]="{ name:server +' blueprint'}" *ngFor="let server of servers"></app-serverlist>
+    </div>
+  </div>
+</div>
