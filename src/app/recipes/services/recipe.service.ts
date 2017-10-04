@@ -1,11 +1,10 @@
 import { Recipe } from '../recipe.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
 import { ShoppingListService } from '../../shopping-list/services/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-    selectedRecipe = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
         // tslint:disable-next-line:max-line-length
         new Recipe(
@@ -27,6 +26,10 @@ export class RecipeService {
 
     getRecipes() {
         return this.recipes.slice(); // To return a new array
+    }
+
+    getRecipe(index: number) {
+        return this.recipes[index];
     }
 
     addIngredientToShoppingList(ingredients: Ingredient[]) {
