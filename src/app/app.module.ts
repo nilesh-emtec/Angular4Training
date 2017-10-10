@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/services/auth.guard.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,7 @@ import { RecipeService } from './recipes/services/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     FormsModule,
     HttpModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

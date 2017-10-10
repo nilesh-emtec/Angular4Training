@@ -7,6 +7,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuard } from './auth/services/auth.guard.service';
 
 const appRoutes: Routes = [
   {
@@ -22,13 +24,15 @@ const appRoutes: Routes = [
       component: RecipeStartComponent
     }, {
       path: 'new',
-      component: RecipeEditComponent
+      component: RecipeEditComponent,
+      canActivate: [AuthGuard]
     }, {
       path: ':id',
       component: RecipeDetailComponent
     }, {
       path: ':id/edit',
-      component: RecipeEditComponent
+      component: RecipeEditComponent,
+      canActivate: [AuthGuard]
     }, {
       path: '**',
       component: PageNotFoundComponent
@@ -41,6 +45,10 @@ const appRoutes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
   },
   {
     path: '**',
