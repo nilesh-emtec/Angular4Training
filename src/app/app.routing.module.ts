@@ -15,46 +15,7 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/recipes',
     pathMatch: 'full' // to match full empty path
-  },
-  {
-    path: 'recipes',
-    component: RecipesComponent,
-    children: [{
-      path: '',
-      component: RecipeStartComponent
-    }, {
-      path: 'new',
-      component: RecipeEditComponent,
-      canActivate: [AuthGuard]
-    }, {
-      path: ':id',
-      component: RecipeDetailComponent
-    }, {
-      path: ':id/edit',
-      component: RecipeEditComponent,
-      canActivate: [AuthGuard]
-    }, {
-      path: '**',
-      component: PageNotFoundComponent
-    }]
-  },
-  {
-    path: 'shopping-list',
-    component: ShoppingListComponent
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
-    path: 'signin',
-    component: SigninComponent
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
   }
-
 ];
 
 @NgModule({
