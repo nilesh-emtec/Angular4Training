@@ -13,7 +13,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <ng-template [ngIf]="!authService.IsAuthenticated()">
+        <ng-template [ngIf]="!isAuthenticate">
           <li routerLinkActive="active">
             <a routerLink="/signup">Register</a>
           </li>
@@ -21,7 +21,7 @@
             <a routerLink="/signin">Sign In</a>
           </li>
         </ng-template>
-        <ng-template [ngIf]="authService.IsAuthenticated()">
+        <ng-template [ngIf]="isAuthenticate">
           <li>
             <a style="cursor: pointer" (click)="onLogout()">Logout</a>
           </li>

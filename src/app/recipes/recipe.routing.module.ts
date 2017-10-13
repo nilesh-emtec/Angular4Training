@@ -7,12 +7,11 @@ import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipesComponent } from './recipes.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { AuthGuard } from '../auth/services/auth.guard.service';
 
 const recipeRoutes: Routes = [
   {
-    path: 'recipes',
+    path: '',
     component: RecipesComponent,
     children: [{
       path: '',
@@ -28,10 +27,8 @@ const recipeRoutes: Routes = [
       path: ':id/edit',
       component: RecipeEditComponent,
       canActivate: [AuthGuard]
-    }, {
-      path: '**',
-      component: PageNotFoundComponent
-    }]
+    }
+    ]
   }
 ];
 
@@ -40,7 +37,11 @@ const recipeRoutes: Routes = [
   exports: [
     RouterModule,
     FormsModule,
-    HttpModule]
+    HttpModule
+  ],
+  providers: [
+    AuthGuard
+  ]
 })
 export class RecipeRoutingModule {
 
