@@ -9,9 +9,7 @@ import { AuthService } from '../../auth/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isAuthenticate = false;
-  constructor(private dataStorageService: DataStorageService, private authService: AuthService) {
-    this.isAuthenticate =  authService.IsAuthenticated();
+  constructor(private dataStorageService: DataStorageService, public authService: AuthService) {
   }
   onSaveDate() {
     this.dataStorageService.storeRecipes().subscribe((response: Response) => {
