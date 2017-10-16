@@ -29,7 +29,10 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })], // extra config tp preload lazy loading modules
+  imports: [RouterModule.forRoot(appRoutes, {
+    preloadingStrategy: PreloadAllModules,
+    useHash: true
+  })], // extra config tp preload lazy loading modules
   exports: [RouterModule]
 })
 export class AppRoutingModule {
